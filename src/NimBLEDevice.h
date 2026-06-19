@@ -219,6 +219,8 @@ class NimBLEDevice {
     static uint32_t                   m_passkey;
     static ble_gap_event_listener     m_listener;
     static uint8_t                    m_ownAddrType;
+    static std::string                m_deviceName;
+    static bool                       m_deviceNameSet;
     static std::vector<NimBLEAddress> m_whiteList;
     static NimBLEDeviceCallbacks*     m_pDeviceCallbacks;
     static NimBLEDeviceCallbacks      defaultDeviceCallbacks;

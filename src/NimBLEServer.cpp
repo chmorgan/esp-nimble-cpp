@@ -891,6 +891,10 @@ bool NimBLEServer::resetGATT() {
 
     ble_gatts_reset();
     ble_svc_gap_init();
+    if (NimBLEDevice::m_deviceNameSet && !NimBLEDevice::setDeviceName(NimBLEDevice::m_deviceName)) {
+        return false;
+    }
+
     ble_svc_gatt_init();
 
     for (auto svcIt = m_svcVec.begin(); svcIt != m_svcVec.end();) {

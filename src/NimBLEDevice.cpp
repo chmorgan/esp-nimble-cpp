@@ -95,6 +95,8 @@ bool                       NimBLEDevice::m_initialized{false};
 uint32_t                   NimBLEDevice::m_passkey{123456};
 bool                       NimBLEDevice::m_synced{false};
 ble_gap_event_listener     NimBLEDevice::m_listener{};
+std::string                NimBLEDevice::m_deviceName{};
+bool                       NimBLEDevice::m_deviceNameSet{false};
 std::vector<NimBLEAddress> NimBLEDevice::m_whiteList{};
 uint8_t                    NimBLEDevice::m_ownAddrType{BLE_OWN_ADDR_PUBLIC};
 
@@ -1326,6 +1328,8 @@ bool NimBLEDevice::setDeviceName(const std::string& deviceName) {
         return false;
     }
 # endif
+    m_deviceName    = deviceName;
+    m_deviceNameSet = true;
     return true;
 } // setDeviceName
 
